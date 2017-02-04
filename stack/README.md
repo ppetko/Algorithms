@@ -1,0 +1,73 @@
+# Data Structure - Stack Implementation using slices
+
+  1 package main
+  2 
+  3 import "fmt"
+  4 
+  5 type stack struct{
+  6     myStack []string
+  7 }
+  8 
+  9 func newStack() *stack {
+ 10     return &stack{make([]string,0)}
+ 11 }
+ 12 
+ 13 func (s *stack) Push(item string){
+ 14     s.myStack = append(s.myStack, item)
+ 15     fmt.Printf("Add %s\n", item)
+ 16 }
+ 17 
+ 18 func (s *stack) Len() *int{
+ 19     l := len(s.myStack)
+ 20     return &l
+ 21 }
+ 22 
+ 23 func (s *stack) Pop(){
+ 24     l := len(s.myStack)
+ 25     fmt.Printf("Removing %v\n",s.myStack[0])
+ 26     s.myStack = s.myStack[:l-1]
+ 27 }
+ 28 
+ 29 func (s * stack) Print(){
+ 30     for _,j := range s.myStack {
+ 31         fmt.Printf("%s, ",j)
+ 32     }
+ 33 }
+
+  1 package main
+  2 
+  3 import "fmt"
+  4 
+  5 func main(){
+  6     p := newStack()
+  7     p.Push("California")
+  8     p.Push("Chicago")
+  9     p.Push("New York")
+ 10     fmt.Printf("My Stack: %s \n", p)
+ 11     fmt.Printf("My len is %d \n",*p.Len())
+ 12     p.Pop()
+ 13     fmt.Printf("My len is %d\n",*p.Len())
+ 14 }
+
+
+Petkos-iMac:stack petko$ go vet main.go stack.go 
+Petkos-iMac:stack petko$ go build main.go stack.go 
+Petkos-iMac:stack petko$ ./main 
+Add California
+Add Chicago
+Add New York
+My Stack: &{[California Chicago New York]} 
+My len is 3 
+Removing California
+My len is 2
+
+16.4.0 Darwin Kernel Version 16.4.0:
+go version go1.7.5 darwin/amd64
+
+# Running time in BigO
+
+        Access  Search  Insertion Deletion  Access    Search   Insert   Deletion Worst
+Stack   Θ(n)    Θ(n)      Θ(1)    Θ(1)      O(n)        O(n)    O(1)    O(1)    O(n)
+
+        O(fmtn) < O(n) < O(nlogn) < O(n^2) < O(2^n) < O(n!)
+
