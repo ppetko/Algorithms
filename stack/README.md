@@ -17,8 +17,10 @@
  12     p.Pop()
  13     fmt.Printf("My len is %d\n",*p.Len())
  14 }
+
 ```
 ## Run the code
+
 ```
 go vet main.go stack.go 
 go build main.go stack.go 
@@ -32,7 +34,8 @@ Removing California
 My len is 2
 ```
 
-# Running time in BigO
+## Running time in BigO
+
 ```
         Access  Search  Insertion Deletion  Access    Search   Insert   Deletion Worst
 Stack   Θ(n)    Θ(n)      Θ(1)    Θ(1)      O(n)        O(n)    O(1)    O(1)    O(n)
