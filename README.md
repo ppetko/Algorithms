@@ -1,4 +1,4 @@
-# Collection of Data Structures and Algorithms in Golang
+## Collection of Data Structures and Algorithms in Golang
 
 1. [BinarySearchTree](https://github.com/mycodinglab/DataStructures_Golang/tree/master/BinarySearchTree)
 2. [LinkedList](https://github.com/mycodinglab/DataStructures_Golang/tree/master/linkedlist)
